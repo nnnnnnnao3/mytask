@@ -1,0 +1,59 @@
+<div class="tasks-container">
+<div class="task-form">
+    <%= form_with model: @task, url: tasks_path, local: true do |f| %>
+  <% if @task.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+            <% @task.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!-- タスクのタイトル入力欄 -->
+  <div class="field-title">
+    <%= f.label :title, 'Task Name' %>
+    <%= f.text_field :title, class: "title-form" %>
+  </div>
+
+  <!-- チェックボックスとタスクの入力欄のリスト -->
+  <div id="tasks-list" class="task-list">
+    <%= f.fields_for :task_items do |task_item_form| %>
+      <div class="task-item">
+        <%= task_item_form.check_box :completed, class: "check-box" %>
+        <%= task_item_form.text_field :description, class: "form-text" %>
+        <%= link_to 'メモ', '#', class: 'memo-button' %>
+        <%= link_to '画像', '#', class: 'image-button' %>
+        <%= link_to '期日', '#', class: 'due-date-button' %>      
+        <%= link_to '削除', '#', class: 'delete-task-button' %>
+   <div class="task-item-fields">
+      <div class="memo-field" style="display: none;">
+        <%= task_item_form.text_area :memo, class: "memo-text" %>
+        </div>
+      <div class="image-field" style="display: none;">
+        <%= task_item_form.file_field :image, class: "image-upload" %>
+       </div>
+      <div class="due-date-field" style="display: none;">
+        <%= task_item_form.date_field :due_date, class: "due-date-input" %>
+       </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+
+  <!-- 新しいタスクの追加ボタン -->
+  <div class="actions">
+        <%= link_to '＋', '#', id: 'add-task-button', class: "addition-button" %>
+  </div>
+
+  <!-- フォームの送信ボタン -->
+  <div class="actions">
+<%= f.submit "Save", class: "save-btn" %>
+  </div>
+<% end %>
+
+<!-- 戻るボタン -->
+<p><%= link_to '戻る', tasks_path %></p>
+</div>
+</div>
