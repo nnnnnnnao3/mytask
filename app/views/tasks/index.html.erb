@@ -4,7 +4,7 @@
 <div class="tasks-index-bg">
   <div class="bg-overlay"></div> <!-- 背景画像のオーバーレイ -->
 
-  <p><%= link_to '●New Task●', "#",class:"task-title" %></p>
+  <p><%= link_to '●New Task●', new_task_path,class:"task-title" %></p>
   <ul>
     <% @tasks.each do |task| %>
       <li>
