@@ -1,0 +1,76 @@
+.field-title{
+  font-size: 40px;
+  display: flex;
+  align-content: center;
+  padding-bottom: 20px;
+  font-family: "Yuji Mai", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.title-form{
+  margin-top: 10px;
+  margin-left: 30px;
+  padding-bottom: 10px;
+  height: 30px;
+  border-radius: 10px;
+}
+
+
+.task-form{
+  padding: 40px 20px;
+
+}
+
+.check-box{
+  border-radius: 10px;
+padding-bottom: 10px;
+}
+
+.form-text{
+  height: 20px;
+}
+
+
+.memo-button,.image-button,.due-date-button,.delete-task-button{
+  display: inline-block;
+  padding: 5px 10px;
+  margin: 5px;
+  font-size: 15px;
+  text-align: center;
+  text-decoration: none;
+  color: rgb(111, 110, 110);
+  background-color: #fbdd91;
+  border: 1px solid #fbdd91;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: "Yomogi", cursive;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.save-btn{
+  font-family: fantasy;
+  background-color: rgb(181, 243, 222);
+  border-style: none;
+  border-radius: 4px;
+  margin-top: 15px;
+  cursor: pointer; 
+  height: 25px;
+}
+
+.actions a{
+font-size: 20px;
+border-radius: 4px;
+border: 1px solid #797878;
+}
+
+.memo-field,.image-field,.due-date-field{
+  padding-left: 30px;
+  padding-bottom: 10px;
+}
+
+.task-item-fields{
+  display: flex;
+  align-items: center;
+}
