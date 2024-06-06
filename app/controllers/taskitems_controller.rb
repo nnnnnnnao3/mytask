@@ -1,2 +1,0 @@
-class TaskitemsController < ApplicationController
-end

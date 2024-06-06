@@ -1,0 +1,2 @@
+class TaskItemsController < ApplicationController
+end
