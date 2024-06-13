@@ -1,4 +1,4 @@
-document.addEventListener("turbo:load", () => {
+const task = () => {
   //add-task-button(追加ボタン)をaddTaskButtonに格納
   const addTaskButton = document.getElementById('add-task-button');
   //tasks-listの要素(チェックボックスとタスクの入力欄のリスト)をtasksListに格納
@@ -12,7 +12,7 @@ document.addEventListener("turbo:load", () => {
     //taskItem 要素の innerHTML プロパティに、新しいHTMLコンテンツを設定
     taskItem.innerHTML = `
     <input type="checkbox" name="task[task_items_attributes][][completed]" class="check-box" />
-    <input type="text" name="task[task_items_attributes][][description]" class="form-text" />
+    <input type="text" name="task[task_items_attributes][][task_text]" class="form-text" />
     <a href="#" class="memo-button">メモ</a>
     <a href="#" class="image-button">画像</a>
     <a href="#" class="due-date-button">期日</a>
@@ -40,15 +40,15 @@ document.addEventListener("turbo:load", () => {
 
     // チェックボックスの変更イベントリスナーを追加
     taskItem.querySelector('.check-box').addEventListener('change', (e) => {
-      //taskItem要素内のclassがform-textである要素を取得し、descriptionFieldに格納
-      const descriptionField = taskItem.querySelector('.form-text');
+      //taskItem要素内のclassがform-textである要素を取得し、tasktextFieldに格納
+      const tasktextField = taskItem.querySelector('.form-text');
       //チェックボックスがチェックされているかどうかを確認
       if (e.target.checked) {
-        //チェックされていたら説明フィールド（descriptionField）に罫線（取り消し線）を引く
-        descriptionField.style.textDecoration = 'line-through';
+        //チェックされていたら説明フィールド（tasktextField）に罫線（取り消し線）を引く
+        tasktextField.style.textDecoration = 'line-through';
       } else {
         //チェックが外されたら説明フィールドの罫線を取り除く
-        descriptionField.style.textDecoration = 'none';
+        tasktextField.style.textDecoration = 'none';
       }
     });
 
@@ -173,4 +173,6 @@ document.addEventListener("turbo:load", () => {
       }  
     });
   });
-});
+};
+window.addEventListener('turbo:load', task);
+window.addEventListener("turbo:render", task);
