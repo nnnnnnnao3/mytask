@@ -1,10 +1,10 @@
 <div class="tasks-container">
 <div class="task-form">
-    <%= form_with model: @task, url: tasks_path, local: true do |f| %>
-  <% if @task.errors.any? %>
+    <%= form_with model: @task_form, url: tasks_path, local: true do |f| %>
+  <% if @task_form.errors.any? %>
     <div id="error_explanation">
       <ul>
-            <% @task.errors.full_messages.each do |message| %>
+            <% @task_form.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
@@ -22,7 +22,7 @@
     <%= f.fields_for :task_items do |task_item_form| %>
       <div class="task-item">
         <%= task_item_form.check_box :completed, class: "check-box" %>
-        <%= task_item_form.text_field :description, class: "form-text" %>
+        <%= task_item_form.text_field :task_text, class: "form-text" %>
         <%= link_to 'メモ', '#', class: 'memo-button' %>
         <%= link_to '画像', '#', class: 'image-button' %>
         <%= link_to '期日', '#', class: 'due-date-button' %>      

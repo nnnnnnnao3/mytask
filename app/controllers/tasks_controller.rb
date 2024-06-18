@@ -17,11 +17,12 @@ class TasksController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
+
   
   
     private
 
     def task_params
-      params.require(:task_form).permit(:title, :task_text, :memo, :due_date,:image).merge(user_id: current_user.id)
+      params.require(:task_form).permit(:title, :task_text, :memo, :due_date, :image).merge(user_id: current_user.id)
     end
 end
